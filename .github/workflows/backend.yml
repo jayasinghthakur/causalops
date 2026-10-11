@@ -1,0 +1,42 @@
+name: Backend foundation
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  foundation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install uv
+        run: python3 -m pip install uv==0.13.0
+      - name: Install locked dependencies and Python
+        run: make bootstrap
+      - name: Formatting, lint, and types
+        run: make check
+      - name: Unit and API contracts
+        run: make test-unit
+      - name: Real FalkorDB integration
+        run: make test-integration
+      - name: Build and start local stack
+        run: make up
+      - name: Seed twice and verify persistence after restart
+        run: |
+          make seed
+          curl --fail http://127.0.0.1:8001/topology > /tmp/topology-before.json
+          make seed
+          curl --fail http://127.0.0.1:8001/topology > /tmp/topology-after.json
+          python3 -c 'import json; assert json.load(open("/tmp/topology-before.json")) == json.load(open("/tmp/topology-after.json"))'
+          docker compose restart falkordb api
+          docker compose up -d --wait --wait-timeout 90 falkordb api
+          curl --fail http://127.0.0.1:8001/topology > /tmp/topology-restarted.json
+          python3 -c 'import json; assert json.load(open("/tmp/topology-before.json")) == json.load(open("/tmp/topology-restarted.json"))'
+          curl --fail http://127.0.0.1:8001/services/payment/impact
+      - name: Service diagnostics
+        if: failure()
+        run: docker compose --profile test logs --no-color
+      - name: Stop services
+        if: always()
+        run: make down

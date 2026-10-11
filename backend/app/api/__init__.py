@@ -1,0 +1,1 @@
+"""Validated HTTP interface."""

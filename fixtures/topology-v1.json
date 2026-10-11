@@ -1,0 +1,511 @@
+{
+  "version": "topology-v1",
+  "nodes": [
+    {
+      "id": "gateway",
+      "label": "Service",
+      "properties": {
+        "name": "Gateway",
+        "environment": "synthetic",
+        "team_id": "demo-platform",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "checkout",
+      "label": "Service",
+      "properties": {
+        "name": "Checkout",
+        "environment": "synthetic",
+        "team_id": "demo-platform",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "payment",
+      "label": "Service",
+      "properties": {
+        "name": "Payment",
+        "environment": "synthetic",
+        "team_id": "demo-platform",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "orders",
+      "label": "Service",
+      "properties": {
+        "name": "Orders",
+        "environment": "synthetic",
+        "team_id": "demo-platform",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "billing",
+      "label": "Service",
+      "properties": {
+        "name": "Billing",
+        "environment": "synthetic",
+        "team_id": "demo-platform",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "identity",
+      "label": "Service",
+      "properties": {
+        "name": "Identity",
+        "environment": "synthetic",
+        "team_id": "demo-platform",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "catalog",
+      "label": "Service",
+      "properties": {
+        "name": "Catalog",
+        "environment": "synthetic",
+        "team_id": "demo-platform",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "inventory",
+      "label": "Service",
+      "properties": {
+        "name": "Inventory",
+        "environment": "synthetic",
+        "team_id": "demo-platform",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "shipping",
+      "label": "Service",
+      "properties": {
+        "name": "Shipping",
+        "environment": "synthetic",
+        "team_id": "demo-platform",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "notification",
+      "label": "Service",
+      "properties": {
+        "name": "Notification",
+        "environment": "synthetic",
+        "team_id": "demo-platform",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "search",
+      "label": "Service",
+      "properties": {
+        "name": "Search",
+        "environment": "synthetic",
+        "team_id": "demo-platform",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "analytics",
+      "label": "Service",
+      "properties": {
+        "name": "Analytics",
+        "environment": "synthetic",
+        "team_id": "demo-platform",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "redis",
+      "label": "Resource",
+      "properties": {
+        "name": "Redis",
+        "kind": "cache",
+        "environment": "synthetic",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "postgres",
+      "label": "Resource",
+      "properties": {
+        "name": "Postgres",
+        "kind": "database",
+        "environment": "synthetic",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "queue",
+      "label": "Resource",
+      "properties": {
+        "name": "Queue",
+        "kind": "queue",
+        "environment": "synthetic",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "warehouse",
+      "label": "Resource",
+      "properties": {
+        "name": "Warehouse",
+        "kind": "database",
+        "environment": "synthetic",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "evidence-topology-v1",
+      "label": "Evidence",
+      "properties": {
+        "name": "Synthetic topology snapshot",
+        "occurred_at": "2026-10-12T00:00:00Z",
+        "source_type": "synthetic_fixture",
+        "source_ref": "fixtures/topology-v1.json",
+        "summary": "Hand-authored dependency topology, not observed production telemetry.",
+        "verification_status": "synthetic"
+      }
+    },
+    {
+      "id": "endpoint-purchase",
+      "label": "Endpoint",
+      "properties": {
+        "name": "purchase",
+        "route": "/demo/purchase",
+        "method": "GET",
+        "service_id": "checkout"
+      }
+    },
+    {
+      "id": "journey-purchase",
+      "label": "Journey",
+      "properties": {
+        "name": "purchase",
+        "priority": "high"
+      }
+    },
+    {
+      "id": "endpoint-login",
+      "label": "Endpoint",
+      "properties": {
+        "name": "login",
+        "route": "/demo/login",
+        "method": "GET",
+        "service_id": "identity"
+      }
+    },
+    {
+      "id": "journey-login",
+      "label": "Journey",
+      "properties": {
+        "name": "login",
+        "priority": "high"
+      }
+    },
+    {
+      "id": "endpoint-browse",
+      "label": "Endpoint",
+      "properties": {
+        "name": "browse",
+        "route": "/demo/browse",
+        "method": "GET",
+        "service_id": "catalog"
+      }
+    },
+    {
+      "id": "journey-browse",
+      "label": "Journey",
+      "properties": {
+        "name": "browse",
+        "priority": "high"
+      }
+    },
+    {
+      "id": "endpoint-track-order",
+      "label": "Endpoint",
+      "properties": {
+        "name": "track-order",
+        "route": "/demo/track-order",
+        "method": "GET",
+        "service_id": "orders"
+      }
+    },
+    {
+      "id": "journey-track-order",
+      "label": "Journey",
+      "properties": {
+        "name": "track-order",
+        "priority": "high"
+      }
+    },
+    {
+      "id": "endpoint-ship-order",
+      "label": "Endpoint",
+      "properties": {
+        "name": "ship-order",
+        "route": "/demo/ship-order",
+        "method": "GET",
+        "service_id": "shipping"
+      }
+    },
+    {
+      "id": "journey-ship-order",
+      "label": "Journey",
+      "properties": {
+        "name": "ship-order",
+        "priority": "high"
+      }
+    },
+    {
+      "id": "endpoint-pay-invoice",
+      "label": "Endpoint",
+      "properties": {
+        "name": "pay-invoice",
+        "route": "/demo/pay-invoice",
+        "method": "GET",
+        "service_id": "billing"
+      }
+    },
+    {
+      "id": "journey-pay-invoice",
+      "label": "Journey",
+      "properties": {
+        "name": "pay-invoice",
+        "priority": "high"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "gateway",
+      "target": "checkout",
+      "type": "CALLS",
+      "critical": true,
+      "evidence_id": "evidence-topology-v1"
+    },
+    {
+      "source": "checkout",
+      "target": "payment",
+      "type": "CALLS",
+      "critical": true,
+      "evidence_id": "evidence-topology-v1"
+    },
+    {
+      "source": "checkout",
+      "target": "orders",
+      "type": "CALLS",
+      "critical": true,
+      "evidence_id": "evidence-topology-v1"
+    },
+    {
+      "source": "orders",
+      "target": "billing",
+      "type": "CALLS",
+      "critical": true,
+      "evidence_id": "evidence-topology-v1"
+    },
+    {
+      "source": "orders",
+      "target": "inventory",
+      "type": "CALLS",
+      "critical": true,
+      "evidence_id": "evidence-topology-v1"
+    },
+    {
+      "source": "orders",
+      "target": "shipping",
+      "type": "CALLS",
+      "critical": true,
+      "evidence_id": "evidence-topology-v1"
+    },
+    {
+      "source": "gateway",
+      "target": "identity",
+      "type": "CALLS",
+      "critical": true,
+      "evidence_id": "evidence-topology-v1"
+    },
+    {
+      "source": "gateway",
+      "target": "catalog",
+      "type": "CALLS",
+      "critical": true,
+      "evidence_id": "evidence-topology-v1"
+    },
+    {
+      "source": "catalog",
+      "target": "search",
+      "type": "CALLS",
+      "critical": true,
+      "evidence_id": "evidence-topology-v1"
+    },
+    {
+      "source": "billing",
+      "target": "payment",
+      "type": "CALLS",
+      "critical": true,
+      "evidence_id": "evidence-topology-v1"
+    },
+    {
+      "source": "gateway",
+      "target": "analytics",
+      "type": "CALLS",
+      "critical": false,
+      "evidence_id": "evidence-topology-v1"
+    },
+    {
+      "source": "shipping",
+      "target": "notification",
+      "type": "CALLS",
+      "critical": false,
+      "evidence_id": "evidence-topology-v1"
+    },
+    {
+      "source": "payment",
+      "target": "redis",
+      "type": "DEPENDS_ON",
+      "critical": true,
+      "evidence_id": "evidence-topology-v1"
+    },
+    {
+      "source": "payment",
+      "target": "postgres",
+      "type": "DEPENDS_ON",
+      "critical": true,
+      "evidence_id": "evidence-topology-v1"
+    },
+    {
+      "source": "billing",
+      "target": "postgres",
+      "type": "DEPENDS_ON",
+      "critical": true,
+      "evidence_id": "evidence-topology-v1"
+    },
+    {
+      "source": "orders",
+      "target": "postgres",
+      "type": "DEPENDS_ON",
+      "critical": true,
+      "evidence_id": "evidence-topology-v1"
+    },
+    {
+      "source": "catalog",
+      "target": "redis",
+      "type": "DEPENDS_ON",
+      "critical": true,
+      "evidence_id": "evidence-topology-v1"
+    },
+    {
+      "source": "inventory",
+      "target": "postgres",
+      "type": "DEPENDS_ON",
+      "critical": true,
+      "evidence_id": "evidence-topology-v1"
+    },
+    {
+      "source": "notification",
+      "target": "queue",
+      "type": "DEPENDS_ON",
+      "critical": true,
+      "evidence_id": "evidence-topology-v1"
+    },
+    {
+      "source": "analytics",
+      "target": "warehouse",
+      "type": "DEPENDS_ON",
+      "critical": true,
+      "evidence_id": "evidence-topology-v1"
+    },
+    {
+      "source": "checkout",
+      "target": "endpoint-purchase",
+      "type": "EXPOSES",
+      "critical": true,
+      "evidence_id": "evidence-topology-v1"
+    },
+    {
+      "source": "journey-purchase",
+      "target": "endpoint-purchase",
+      "type": "USES",
+      "critical": true,
+      "evidence_id": "evidence-topology-v1"
+    },
+    {
+      "source": "identity",
+      "target": "endpoint-login",
+      "type": "EXPOSES",
+      "critical": true,
+      "evidence_id": "evidence-topology-v1"
+    },
+    {
+      "source": "journey-login",
+      "target": "endpoint-login",
+      "type": "USES",
+      "critical": true,
+      "evidence_id": "evidence-topology-v1"
+    },
+    {
+      "source": "catalog",
+      "target": "endpoint-browse",
+      "type": "EXPOSES",
+      "critical": true,
+      "evidence_id": "evidence-topology-v1"
+    },
+    {
+      "source": "journey-browse",
+      "target": "endpoint-browse",
+      "type": "USES",
+      "critical": true,
+      "evidence_id": "evidence-topology-v1"
+    },
+    {
+      "source": "orders",
+      "target": "endpoint-track-order",
+      "type": "EXPOSES",
+      "critical": true,
+      "evidence_id": "evidence-topology-v1"
+    },
+    {
+      "source": "journey-track-order",
+      "target": "endpoint-track-order",
+      "type": "USES",
+      "critical": true,
+      "evidence_id": "evidence-topology-v1"
+    },
+    {
+      "source": "shipping",
+      "target": "endpoint-ship-order",
+      "type": "EXPOSES",
+      "critical": true,
+      "evidence_id": "evidence-topology-v1"
+    },
+    {
+      "source": "journey-ship-order",
+      "target": "endpoint-ship-order",
+      "type": "USES",
+      "critical": true,
+      "evidence_id": "evidence-topology-v1"
+    },
+    {
+      "source": "billing",
+      "target": "endpoint-pay-invoice",
+      "type": "EXPOSES",
+      "critical": true,
+      "evidence_id": "evidence-topology-v1"
+    },
+    {
+      "source": "journey-pay-invoice",
+      "target": "endpoint-pay-invoice",
+      "type": "USES",
+      "critical": true,
+      "evidence_id": "evidence-topology-v1"
+    }
+  ]
+}
